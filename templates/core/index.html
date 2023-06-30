@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Application - Home</title>
+    <link type="text/css" href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    {% include "core/main-nav.html" %}
+    <main style="max-width: 1320px; margin: auto;">
+        <section class='main-section'>
+        <h1 class = 'main-title'>
+            {%if request.user.is_authenticated%}
+            Welcome, {{user.username}}
+            {%else%}
+            Welcome to blogs
+            {% endif %}
+    </section>
+
+    {% block blogs %}
+        {% include "blog/post/blogs_list.html" %}
+    {% endblock blogs %}
+    
+</main>
+</body>
+</html>

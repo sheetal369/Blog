@@ -1,0 +1,37 @@
+{% extends 'core/index.html' %}
+
+
+{% block blogs %}
+{% for post in posts %}
+    <h2>
+        <a href="{{ post.get_absolute_url }}">
+            {{ post.title }}
+        </a>
+    </h2>
+
+    <p class="date">
+        Published {{ post.publish }} by {{ post.author }}
+    </p>
+    {{ post.body|truncatewords:30|linebreaks }}
+
+    <div class="form-container">
+        <form action="{% url 'blog:edit_post' %}" method="GET">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ post.id }}">
+            <button class='submit' type="submit">Edit</button>
+        </form>
+
+        <form action="{% url 'blog:delete_post' %}" method="GET">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ post.id }}">
+            <button type="submit" class='delete'>Delete</button>
+        </form>
+    </div>
+{% endfor %}
+
+<div id="sidebar">
+        <a href="{% url 'blog:create_post'%}">Create post</a>
+        <h2>My blogs</h2>
+    <p>This is my blog.</p>
+</div>
+{% endblock blogs %}

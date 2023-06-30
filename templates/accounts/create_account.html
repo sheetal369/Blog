@@ -1,0 +1,6 @@
+{% comment %} Not needed anymore {% endcomment %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"> Create User</button>
+</form> 
