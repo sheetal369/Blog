@@ -1,2 +1,3 @@
 web: gunicorn django_project.wsgi --log-file -
+
 # Above line says use Gunicorn as the webserver, look for the WSGI configuration in django_project.wsgi, and also to output log files which is an optional 
