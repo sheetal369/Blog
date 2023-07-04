@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-u5zuo#bb%g=sth1j(9-jzxcdq%#80(3)*um^ekv6q7r&y5b0+5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]
 
 AUTH_USER_MODEL = "accounts.CustomUser"
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",  # Django content type system (allows permissions to be associated with models).
     "django.contrib.sessions",
     "django.contrib.messages",
+    "whitenoise", # It should always be above staticfiles
     "django.contrib.staticfiles",
     
     #Third Party Apps
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "WhiteNoiseMiddleware", # It should above CommonMiddleWare
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -144,6 +146,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" # new
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
