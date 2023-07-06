@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",  # Django content type system (allows permissions to be associated with models).
     "django.contrib.sessions",
     "django.contrib.messages",
-    "whitenoise", # It should always be above staticfiles
+    #"whitenoise", # It should always be above staticfiles
     "django.contrib.staticfiles",
     
     #Third Party Apps
@@ -55,7 +55,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "WhiteNoiseMiddleware", # It should above CommonMiddleWare
+    # "WhiteNoiseMiddleware", # It should above CommonMiddleWare
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
