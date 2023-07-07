@@ -23,5 +23,8 @@ urlpatterns = [
     path("accounts/", include("accounts.urls", namespace="accounts")),
     path("", include("core.urls", namespace="core")),
     path("admins/", include("admins.urls", namespace="admins")),
-    path("v1/api/", include("apis.urls", namespace="apis")),
+    path("v1/api/", include("apis.urls")),
+    path("v2/api/", include("apis.apis_urls")),
+    path('api-auth/', include('rest_framework.urls'))
+
 ]
