@@ -20,3 +20,4 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     queryset = Post.objects.all()
+    #Changes
