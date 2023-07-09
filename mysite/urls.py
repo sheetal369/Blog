@@ -26,5 +26,4 @@ urlpatterns = [
     path("v1/api/", include("apis.urls")),
     path("v2/api/", include("apis.apis_urls")),
     path('api-auth/', include('rest_framework.urls'))
-
 ]
